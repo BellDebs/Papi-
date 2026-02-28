@@ -281,15 +281,44 @@ setTimeout(typeMessage,25);
 }
 }
 
-/* REWARD */
+).classList.add("hidden");
+document.getElementById("rewardPanel").classList.remove("hidden");
+
 function acceptReward(){
 
 document.getElementById("greeting").classList.add("hidden");
 document.getElementById("rewardPanel").classList.remove("hidden");
 
-setTimeout(()=>{
-document.getElementById("perks").classList.add("show");
-},700);
+const perks=[
+"⚡ Installing System Rewards...",
+"",
+"💰 Wealth +100",
+"❤️ Health +100",
+"😊 Happiness +100",
+"",
+"✅ ASCENSION COMPLETE"
+];
+
+let i=0;
+const container=document.getElementById("perks");
+
+function loadPerk(){
+
+if(i<perks.length){
+
+let line=document.createElement("div");
+line.style.margin="8px";
+line.style.color="gold";
+line.textContent=perks[i];
+
+container.appendChild(line);
+
+i++;
+setTimeout(loadPerk,700);
+}
+}
+
+loadPerk();
 }
 
 </script>
